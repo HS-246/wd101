@@ -13,8 +13,11 @@ const retrieveForm = () => {
 let userEntries = retrieveForm();
 
 function validateDob(dob) {
-  const minDate = new Date("1967-11-09");
-  const maxDate = new Date("2004-11-09");
+  const current = new Date();
+  let minDate = new Date();
+  let maxDate = new Date();
+  minDate.setFullYear(current.getFullYear() - 18);
+  maxDate.setFullYear(current.getFullYear() - 18 - 55);
   dob = new Date(dob);
   if (dob >= minDate && dob <= maxDate) return true;
   else return false;
