@@ -16,8 +16,12 @@ function validateDob(dob) {
   const current = new Date();
   let minDate = new Date();
   let maxDate = new Date();
-  minDate.setFullYear(current.getFullYear() - 18);
-  maxDate.setFullYear(current.getFullYear() - 18 - 55);
+  minDate.setFullYear(current.getFullYear() - 55);
+
+  maxDate.setFullYear(current.getFullYear() - 18);
+
+  console.log(minDate);
+  console.log(maxDate);
   dob = new Date(dob);
   if (dob >= minDate && dob <= maxDate) return true;
   else return false;
@@ -45,7 +49,7 @@ const saveForm = (event) => {
     localStorage.setItem("user-entries", JSON.stringify(userEntries));
   } else {
     let date = document.getElementById("dob");
-    date.setCustomValidity("Date must be between 9/11/1967 and 9/11/2004!");
+    date.setCustomValidity("must be between 18 and 55 years old");
     date.reportValidity();
   }
   makeTable();
