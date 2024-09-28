@@ -48,9 +48,9 @@ const saveForm = (event) => {
 
   localStorage.setItem("user-entries", JSON.stringify(userEntries));
   //} else {
-  let date = document.getElementById("dob");
-  date.setCustomValidity("must be between 18 and 55 years old");
-  date.reportValidity();
+  // let date = document.getElementById("dob");
+  // date.setCustomValidity("must be between 18 and 55 years old");
+  // date.reportValidity();
   //}
   makeTable();
 };
