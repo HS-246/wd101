@@ -12,20 +12,20 @@ const retrieveForm = () => {
 
 let userEntries = retrieveForm();
 
-function validateDob(dob) {
-  const current = new Date();
-  let minDate = new Date();
-  let maxDate = new Date();
-  minDate.setFullYear(current.getFullYear() - 55);
+// function validateDob(dob) {
+//   const current = new Date();
+//   let minDate = new Date();
+//   let maxDate = new Date();
+//   minDate.setFullYear(current.getFullYear() - 55);
 
-  maxDate.setFullYear(current.getFullYear() - 18);
+//   maxDate.setFullYear(current.getFullYear() - 18);
 
-  console.log(minDate);
-  console.log(maxDate);
-  dob = new Date(dob);
-  if (dob >= minDate && dob <= maxDate) return true;
-  else return false;
-}
+//   console.log(minDate);
+//   console.log(maxDate);
+//   dob = new Date(dob);
+//   if (dob >= minDate && dob <= maxDate) return true;
+//   else return false;
+// }
 
 const saveForm = (event) => {
   event.preventDefault();
@@ -35,23 +35,23 @@ const saveForm = (event) => {
   let dob = document.getElementById("dob").value;
   const tnc = document.getElementById("tnc").checked;
 
-  if (validateDob(dob)) {
-    const entry = {
-      name,
-      email,
-      password,
-      dob,
-      tnc,
-    };
+  //if (validateDob(dob)) {
+  const entry = {
+    name,
+    email,
+    password,
+    dob,
+    tnc,
+  };
 
-    userEntries.push(entry);
+  userEntries.push(entry);
 
-    localStorage.setItem("user-entries", JSON.stringify(userEntries));
-  } else {
-    let date = document.getElementById("dob");
-    date.setCustomValidity("must be between 18 and 55 years old");
-    date.reportValidity();
-  }
+  localStorage.setItem("user-entries", JSON.stringify(userEntries));
+  //} else {
+  let date = document.getElementById("dob");
+  date.setCustomValidity("must be between 18 and 55 years old");
+  date.reportValidity();
+  //}
   makeTable();
 };
 
